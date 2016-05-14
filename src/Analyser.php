@@ -11,14 +11,15 @@ class Analyser
 {
     private $parser;
     private $traverser;
+    private $ruleset;
     private $reporter;
-    private $watchers = [];
 
     public static function buildDefault()
     {
         return new self(
             (new ParserFactory)->create(ParserFactory::PREFER_PHP7),
             new NodeTraverser(),
+            Ruleset::buildDefault(),
             new Reporter()
         );
     }
@@ -26,26 +27,29 @@ class Analyser
     public function __construct(
         Parser $parser,
         NodeTraverser $traverser,
+        Ruleset $ruleset,
         Reporter $reporter
     ) {
         $this->parser = $parser;
         $this->traverser = $traverser;
+        $this->ruleset = $ruleset;
         $this->reporter = $reporter;
         $this->traverser->addVisitor(new NameResolver());
-    }
-
-    public function addWatcher(AbstractWatcher $watcher)
-    {
-        $watcher->setReporter($this->reporter);
-        $this->watchers[] = $watcher;
-        $this->traverser->addVisitor($watcher);
+        $this->traverser->addVisitor(new RuleVisitor($ruleset, $reporter));
     }
 
     public function analyse($source)
     {
+        if (!is_string($source)) {
+            throw new \InvalidArgumentException('Source must be a string');
+        }
+
         $stmts = $this->parser->parse($source);
         $this->traverser->traverse($stmts);
+    }
 
-        return $this->reporter->getMessages();
+    public function getReporter()
+    {
+        return $this->reporter;
     }
 }

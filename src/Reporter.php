@@ -6,7 +6,7 @@ use PhpParser\Node;
 
 class Reporter
 {
-    private $messages = [];
+    private $violations = [];
     private $currentFile = '';
 
     public function setFile($file)
@@ -14,13 +14,13 @@ class Reporter
         $this->currentFile = $file;
     }
 
-    public function addMessage($message, AbstractWatcher $watcher, Node $target)
+    public function addViolation($message, RuleInterface $rule, Node $target)
     {
-        $this->messages[$this->currentFile][] = [$message, $watcher, $target];
+        $this->violations[$this->currentFile][] = [$message, $rule, $target];
     }
 
-    public function getMessages()
+    public function getViolations()
     {
-        return $this->messages;
+        return $this->violations;
     }
 }

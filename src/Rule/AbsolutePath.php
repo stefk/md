@@ -2,15 +2,14 @@
 
 namespace MD\Rule;
 
+use MD\AbstractRule;
 use MD\Levels;
-use MD\Reporter;
-use MD\RuleInterface;
 use MD\Tags;
-use MD\Types;
 use PhpParser\Node;
 use PhpParser\Node\Expr\BinaryOp\Concat;
+use PhpParser\Node\Scalar\String_;
 
-class AbsolutePath implements RuleInterface
+class AbsolutePath extends AbstractRule
 {
     public function name()
     {
@@ -32,16 +31,16 @@ class AbsolutePath implements RuleInterface
         return [Tags::BUGRISK];
     }
 
-    public function nodeType()
+    public function enterNode(Node $node)
     {
-        return Types::SCALAR_STRING;
-    }
+        if (!$node instanceof String_) {
+            return;
+        }
 
-    public function apply(Node $node, Reporter $reporter)
-    {
         if (($parent = $node->getAttribute('parent')) instanceof Concat) {
             if ($parent->getAttribute('children')[0] !== $node) {
-                return; // doesn't apply if we're on the right side of a concatenation
+                // doesn't apply if we're on the right side of a concatenation
+                return;
             }
         }
 
@@ -49,7 +48,7 @@ class AbsolutePath implements RuleInterface
         $isWindowsAbsolute = preg_match('#^[a-z]:/[a-z]+#i', $node->value);
 
         if ($isUnixAbsolute || $isWindowsAbsolute) {
-            $reporter->addViolation("Found absolute path \"{$node->value}\"", $this, $node);
+            $this->reporter->addViolation("Found absolute path \"{$node->value}\"", $this, $node);
         }
     }
 }

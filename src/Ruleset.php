@@ -16,7 +16,6 @@ class Ruleset
     ];
 
     private $rules = [];
-    private $rulesByType;
 
     public static function buildDefault()
     {
@@ -30,7 +29,7 @@ class Ruleset
         return $set;
     }
 
-    public function addRule(RuleInterface $rule)
+    public function addRule(AbstractRule $rule)
     {
         $this->assertValidName($rule);
         $this->assertValidDescription($rule);
@@ -39,22 +38,12 @@ class Ruleset
         $this->rules[$rule->name()] = $rule;
     }
 
-    public function getRulesByType($type)
+    public function getRules()
     {
-        if (!$this->rulesByType) {
-            foreach ($this->rules as $rule) {
-                $this->rulesByType[$rule->nodeType()][] = $rule;
-            }
-        }
-
-        if (!isset($this->rulesByType[$type])) {
-            $this->rulesByType[$type] = [];
-        }
-
-        return $this->rulesByType[$type];
+        return $this->rules;
     }
 
-    private function assertValidName(RuleInterface $rule)
+    private function assertValidName(AbstractRule $rule)
     {
         if (!is_string($name = $rule->name())) {
             throw new InvalidRuleNameException('Rule name must be a string');
@@ -71,7 +60,7 @@ class Ruleset
         }
     }
 
-    private function assertValidDescription(RuleInterface $rule)
+    private function assertValidDescription(AbstractRule $rule)
     {
         if (!is_string($desc = $rule->description())) {
             throw new InvalidRuleDescriptionException('Rule description must be a string');
@@ -82,7 +71,7 @@ class Ruleset
         }
     }
 
-    private function assertValidLevel(RuleInterface $rule)
+    private function assertValidLevel(AbstractRule $rule)
     {
         if (!is_int($level = $rule->level())) {
             throw new InvalidRuleLevelException('Rule level must be an integer');
@@ -93,7 +82,7 @@ class Ruleset
         }
     }
 
-    private function assertValidTags(RuleInterface $rule)
+    private function assertValidTags(AbstractRule $rule)
     {
         if (!is_array($tags = $rule->tags())) {
             throw new InvalidRuleTagsException('Rule tags must be an array');

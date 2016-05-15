@@ -3,7 +3,6 @@
 namespace MD;
 
 use MD\Levels;
-use MD\Types;
 
 class RulesetTest extends \PHPUnit_Framework_TestCase
 {
@@ -63,28 +62,6 @@ class RulesetTest extends \PHPUnit_Framework_TestCase
         $set->addRule($this->mockRule('foo', 'desc', Levels::INFO, $tags));
     }
 
-    public function testGetRulesByType()
-    {
-        $rule1 = $this->mockRule('foo', 'desc');
-        $rule2 = $this->mockRule('bar', 'desc');
-        $rule3 = $this->mockRule('baz', 'desc');
-
-        $rule1->expects($this->once())->method('nodeType')->willReturn(Types::SCALAR_STRING);
-        $rule2->expects($this->once())->method('nodeType')->willReturn(Types::SCALAR_STRING);
-        $rule3->expects($this->once())->method('nodeType')->willReturn(Types::EXPR_FUNC_CALL);
-
-        $set = new Ruleset();
-        $set->addRule($rule1);
-        $set->addRule($rule2);
-        $set->addRule($rule3);
-
-        $this->assertEquals([$rule1, $rule2], $set->getRulesByType(Types::SCALAR_STRING));
-        $this->assertEquals([$rule3], $set->getRulesByType(Types::EXPR_FUNC_CALL));
-        // ensure rules are cached (see once() constraints above)
-        $this->assertEquals([$rule1, $rule2], $set->getRulesByType(Types::SCALAR_STRING));
-        $this->assertEquals([$rule3], $set->getRulesByType(Types::EXPR_FUNC_CALL));
-    }
-
     public function invalidRuleInfoProvider()
     {
         return [
@@ -117,7 +94,7 @@ class RulesetTest extends \PHPUnit_Framework_TestCase
 
     protected function mockRule($name, $description, $level = Levels::INFO, $tags = false)
     {
-        $rule = $this->getMock('MD\RuleInterface');
+        $rule = $this->getMock('MD\AbstractRule');
         $rule->expects($this->any())->method('name')->willReturn($name);
         $rule->expects($this->any())->method('description')->willReturn($description);
         $rule->expects($this->any())->method('level')->willReturn($level);

@@ -12,7 +12,7 @@ class Violation
     public $startLine;
     public $endLine;
 
-    public function __construct($message, RuleInterface $rule, Node $node, $file)
+    public function __construct($message, AbstractRule $rule, Node $node, $file)
     {
         $this->message = $message;
         $this->rule = $rule;

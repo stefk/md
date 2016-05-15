@@ -5,7 +5,6 @@ namespace MD\Testing;
 use MD\Analyser;
 use MD\Levels;
 use MD\Reporter;
-use MD\RuleInterface;
 use MD\Ruleset;
 use PhpParser\NodeTraverser;
 use PhpParser\ParserFactory;
@@ -30,7 +29,7 @@ abstract class RuleTestCase extends \PHPUnit_Framework_TestCase
         $expectedCount = count($expectedViolations);
 
         if ($count === 0 && $expectedCount > 0) {
-            $this->fail("{$expectedCount} violations were expected in {$fileName}, none found");
+            $this->fail("{$expectedCount} violations were expected in {$file}, none found");
         }
 
         $stdViolations = array_map(function ($violation) {

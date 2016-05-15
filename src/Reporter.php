@@ -14,7 +14,7 @@ class Reporter
         $this->currentFile = $file;
     }
 
-    public function addViolation($message, RuleInterface $rule, Node $target)
+    public function addViolation($message, AbstractRule $rule, Node $target)
     {
         $this->violations[] = new Violation($message, $rule, $target, $this->currentFile);
     }

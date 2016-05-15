@@ -2,14 +2,14 @@
 
 namespace MD\Rule;
 
+use MD\AbstractRule;
 use MD\Levels;
 use MD\Reporter;
-use MD\RuleInterface;
 use MD\Tags;
-use MD\Types;
 use PhpParser\Node;
+use PhpParser\Node\Expr\FuncCall;
 
-class DebugFunction implements RuleInterface
+class DebugFunction extends AbstractRule
 {
     private static $debugFunctions = [
         'var_dump' => true,
@@ -38,17 +38,16 @@ class DebugFunction implements RuleInterface
         return [Tags::SECURITY];
     }
 
-    public function nodeType()
+    public function enterNode(Node $node)
     {
-        return Types::EXPR_FUNC_CALL;
-    }
+        if (!$node instanceof FuncCall) {
+            return;
+        }
 
-    public function apply(Node $node, Reporter $reporter)
-    {
         $function = $node->name->parts[0];
 
         if (isset(static::$debugFunctions[$function])) {
-            $reporter->addViolation("Found {$function}() call", $this, $node);
+            $this->reporter->addViolation("Found {$function}() call", $this, $node);
         }
     }
 }

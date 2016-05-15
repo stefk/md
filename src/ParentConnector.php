@@ -1,6 +1,6 @@
 <?php
 
-namespace MD\Visitor;
+namespace MD;
 
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;

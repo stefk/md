@@ -2,8 +2,7 @@
 
 namespace MD;
 
-use MD\Visitor\ParentConnector;
-use MD\Visitor\RuleApplier;
+use MD\ParentConnector;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\Parser;
@@ -38,7 +37,11 @@ class Analyser
         $this->reporter = $reporter;
         $this->traverser->addVisitor(new NameResolver());
         $this->traverser->addVisitor(new ParentConnector());
-        $this->traverser->addVisitor(new RuleApplier($ruleset, $reporter));
+
+        foreach ($ruleset->getRules() as $rule) {
+            $rule->setReporter($reporter);
+            $this->traverser->addVisitor($rule);
+        }
     }
 
     public function analyse($source)

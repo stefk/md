@@ -25,7 +25,7 @@ class DebugFunction extends AbstractRule
 
     public function description()
     {
-        return 'Debug functions should not be included in production code.';
+        return 'Debug functions should not be included in production code';
     }
 
     public function level()

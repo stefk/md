@@ -14,7 +14,7 @@ class ParentConnector extends NodeVisitorAbstract
 {
     private $stack;
 
-    public function beginTraverse(array $nodes)
+    public function beforeTraverse(array $nodes)
     {
         $this->stack = [];
     }

@@ -1,0 +1,14 @@
+[
+  {
+    "message": "Found sql concat 'SELECT * FROM foo WHERE id = '",
+    "rule": "database_query",
+    "startLine": 11,
+    "endLine": 12
+  },
+  {
+    "message": "Found sql concat '\n        UPDATE quz\n        SET y = 1\n        Where id >\n    '",
+    "rule": "database_query",
+    "startLine": 18,
+    "endLine": 22
+  }
+]

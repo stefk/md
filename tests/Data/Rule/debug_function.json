@@ -1,24 +1,24 @@
 [
   {
-    "message": "var_dump function detected",
+    "message": "Found var_dump() call",
     "rule": "debug_function",
     "startLine": 3,
     "endLine": 3
   },
   {
-    "message": "print_r function detected",
+    "message": "Found print_r() call",
     "rule": "debug_function",
     "startLine": 7,
     "endLine": 7
   },
   {
-    "message": "debug_zval_dump function detected",
+    "message": "Found debug_zval_dump() call",
     "rule": "debug_function",
     "startLine": 16,
     "endLine": 16
   },
   {
-    "message": "debug_print_backtrace function detected",
+    "message": "Found debug_print_backtrace() call",
     "rule": "debug_function",
     "startLine": 22,
     "endLine": 22

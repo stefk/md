@@ -48,7 +48,7 @@ class DebugFunction implements RuleInterface
         $function = $node->name->parts[0];
 
         if (isset(static::$debugFunctions[$function])) {
-            $reporter->addViolation("{$function} function detected", $this, $node);
+            $reporter->addViolation("Found {$function}() call", $this, $node);
         }
     }
 }

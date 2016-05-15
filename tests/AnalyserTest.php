@@ -2,11 +2,10 @@
 
 namespace MD;
 
-use MD\Testing\TestCase;
 use PhpParser\ParserFactory;
 use PhpParser\NodeTraverser;
 
-class AnalyserTest extends TestCase
+class AnalyserTest extends \PHPUnit_Framework_TestCase
 {
     public function testBuildDefault()
     {

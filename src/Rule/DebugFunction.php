@@ -20,7 +20,7 @@ class DebugFunction implements RuleInterface
 
     public function name()
     {
-        return 'debug_functions';
+        return 'debug_function';
     }
 
     public function description()

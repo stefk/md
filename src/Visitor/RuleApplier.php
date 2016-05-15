@@ -1,11 +1,13 @@
 <?php
 
-namespace MD;
+namespace MD\Visitor;
 
+use MD\Reporter;
+use MD\Ruleset;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
 
-class RuleVisitor extends NodeVisitorAbstract
+class RuleApplier extends NodeVisitorAbstract
 {
     private $ruleset;
     private $reporter;

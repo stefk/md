@@ -2,6 +2,8 @@
 
 namespace MD;
 
+use MD\Visitor\ParentConnector;
+use MD\Visitor\RuleApplier;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\Parser;
@@ -35,7 +37,8 @@ class Analyser
         $this->ruleset = $ruleset;
         $this->reporter = $reporter;
         $this->traverser->addVisitor(new NameResolver());
-        $this->traverser->addVisitor(new RuleVisitor($ruleset, $reporter));
+        $this->traverser->addVisitor(new ParentConnector());
+        $this->traverser->addVisitor(new RuleApplier($ruleset, $reporter));
     }
 
     public function analyse($source)
@@ -46,6 +49,12 @@ class Analyser
 
         $stmts = $this->parser->parse($source);
         $this->traverser->traverse($stmts);
+    }
+
+    public function analyseFile($file)
+    {
+        $this->reporter->setFile($file);
+        $this->analyse(file_get_contents($file));
     }
 
     public function getReporter()

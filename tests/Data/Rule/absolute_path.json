@@ -1,0 +1,20 @@
+[
+  {
+    "message": "Found absolute path \"/absolute/path\"",
+    "rule": "absolute_path",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found absolute path \"C:/Absolute/Path\"",
+    "rule": "absolute_path",
+    "startLine": 9,
+    "endLine": 9
+  },
+  {
+    "message": "Found absolute path \"d:/absolute\"",
+    "rule": "absolute_path",
+    "startLine": 13,
+    "endLine": 13
+  }
+]

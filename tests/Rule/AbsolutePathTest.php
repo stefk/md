@@ -4,10 +4,10 @@ namespace MD\Rule;
 
 use MD\Testing\RuleTestCase;
 
-class DebugFunctionTest extends RuleTestCase
+class AbsolutePathTest extends RuleTestCase
 {
     protected function getRule()
     {
-        return new DebugFunction();
+        return new AbsolutePath();
     }
 }

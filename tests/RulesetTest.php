@@ -2,10 +2,10 @@
 
 namespace MD;
 
-use MD\Testing\TestCase;
+use MD\Levels;
 use MD\Types;
 
-class RulesetTest extends TestCase
+class RulesetTest extends \PHPUnit_Framework_TestCase
 {
     public function testBuildDefault()
     {
@@ -113,5 +113,16 @@ class RulesetTest extends TestCase
             [['foo', '', 'bar']],
             [[]],
         ];
+    }
+
+    protected function mockRule($name, $description, $level = Levels::INFO, $tags = false)
+    {
+        $rule = $this->getMock('MD\RuleInterface');
+        $rule->expects($this->any())->method('name')->willReturn($name);
+        $rule->expects($this->any())->method('description')->willReturn($description);
+        $rule->expects($this->any())->method('level')->willReturn($level);
+        $rule->expects($this->any())->method('tags')->willReturn($tags !== false ? $tags : ['foo']);
+
+        return $rule;
     }
 }

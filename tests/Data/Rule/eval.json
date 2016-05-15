@@ -1,0 +1,14 @@
+[
+  {
+    "message": "Found eval() call",
+    "rule": "eval",
+    "startLine": 5,
+    "endLine": 5
+  },
+  {
+    "message": "Found eval() call",
+    "rule": "eval",
+    "startLine": 8,
+    "endLine": 8
+  }
+]

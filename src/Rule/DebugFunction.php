@@ -4,7 +4,6 @@ namespace MD\Rule;
 
 use MD\AbstractRule;
 use MD\Levels;
-use MD\Reporter;
 use MD\Tags;
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;

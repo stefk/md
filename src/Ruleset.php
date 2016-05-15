@@ -13,6 +13,7 @@ class Ruleset
     private static $defaultRules = [
         'AbsolutePath',
         'DebugFunction',
+        'EvalExpression',
     ];
 
     private $rules = [];

@@ -54,7 +54,7 @@ class AbsolutePath extends AbstractRule
         }
 
         $isUnixAbsolute = preg_match('#^/[a-z]+#', $node->value);
-        $isWindowsAbsolute = preg_match('#^[a-z]:/[a-z]+#i', $node->value);
+        $isWindowsAbsolute = preg_match('#^[a-z]:[\\\\/][a-z]+#i', $node->value);
 
         if ($isUnixAbsolute || $isWindowsAbsolute) {
             $this->reporter->addViolation("Found absolute path \"{$node->value}\"", $this, $node);

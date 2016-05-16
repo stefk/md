@@ -6,13 +6,13 @@
     "endLine": 3
   },
   {
-    "message": "Found absolute path \"C:/Absolute/Path\"",
+    "message": "Found absolute path \"C:/Absolute/Path\\with\\mixed\\slashes\"",
     "rule": "absolute_path",
     "startLine": 9,
     "endLine": 9
   },
   {
-    "message": "Found absolute path \"d:/absolute\"",
+    "message": "Found absolute path \"d:\\absolute\\path\"",
     "rule": "absolute_path",
     "startLine": 13,
     "endLine": 13

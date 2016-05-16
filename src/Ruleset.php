@@ -17,6 +17,7 @@ class Ruleset
         'EvalExpression',
         'LogicalOperator',
         'MissingUse',
+        'StaticThis',
     ];
 
     private $rules = [];

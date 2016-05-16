@@ -1,0 +1,20 @@
+[
+  {
+    "message": "Found $this reference in static method",
+    "rule": "static_this",
+    "startLine": 10,
+    "endLine": 10
+  },
+  {
+    "message": "Found $this reference in static method",
+    "rule": "static_this",
+    "startLine": 20,
+    "endLine": 20
+  },
+  {
+    "message": "Found $this reference in static method",
+    "rule": "static_this",
+    "startLine": 22,
+    "endLine": 22
+  }
+]

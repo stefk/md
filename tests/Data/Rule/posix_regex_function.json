@@ -1,0 +1,44 @@
+[
+  {
+    "message": "Found ereg_replace() call",
+    "rule": "posix_regex_function",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found ereg() call",
+    "rule": "posix_regex_function",
+    "startLine": 5,
+    "endLine": 5
+  },
+  {
+    "message": "Found eregi_replace() call",
+    "rule": "posix_regex_function",
+    "startLine": 11,
+    "endLine": 11
+  },
+  {
+    "message": "Found eregi() call",
+    "rule": "posix_regex_function",
+    "startLine": 13,
+    "endLine": 13
+  },
+  {
+    "message": "Found split() call",
+    "rule": "posix_regex_function",
+    "startLine": 21,
+    "endLine": 21
+  },
+  {
+    "message": "Found spliti() call",
+    "rule": "posix_regex_function",
+    "startLine": 23,
+    "endLine": 23
+  },
+  {
+    "message": "Found sql_regcase() call",
+    "rule": "posix_regex_function",
+    "startLine": 28,
+    "endLine": 28
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "message": "Found __DIR__ constant",
+    "rule": "path_constant",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found __FILE__ constant",
+    "rule": "path_constant",
+    "startLine": 7,
+    "endLine": 7
+  }
+]

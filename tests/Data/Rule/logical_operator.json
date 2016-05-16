@@ -1,0 +1,20 @@
+[
+  {
+    "message": "Found logical operator 'xor'",
+    "rule": "logical_operator",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found logical operator 'and'",
+    "rule": "logical_operator",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found logical operator 'or'",
+    "rule": "logical_operator",
+    "startLine": 8,
+    "endLine": 8
+  }
+]

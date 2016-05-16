@@ -14,6 +14,7 @@ class Ruleset
         'AbsolutePath',
         'DatabaseQuery',
         'DebugFunction',
+        'ExitExpression',
         'EvalExpression',
         'LogicalOperator',
         'MissingUse',

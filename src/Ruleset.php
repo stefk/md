@@ -12,8 +12,11 @@ class Ruleset
 {
     private static $defaultRules = [
         'AbsolutePath',
+        'DatabaseQuery',
         'DebugFunction',
         'EvalExpression',
+        'LogicalOperator',
+        'MissingUse',
     ];
 
     private $rules = [];

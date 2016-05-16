@@ -1,0 +1,14 @@
+[
+  {
+    "message": "Found fully qualified name 'X\\Y\\Z'",
+    "rule": "missing_use",
+    "startLine": 17,
+    "endLine": 17
+  },
+  {
+    "message": "Found fully qualified name 'A\\B'",
+    "rule": "missing_use",
+    "startLine": 18,
+    "endLine": 18
+  }
+]

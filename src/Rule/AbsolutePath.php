@@ -11,6 +11,8 @@ use PhpParser\Node\Scalar\String_;
 
 class AbsolutePath extends AbstractRule
 {
+    private $parentConcat;
+
     public function name()
     {
         return 'absolute_path';
@@ -31,17 +33,24 @@ class AbsolutePath extends AbstractRule
         return [Tags::BUGRISK];
     }
 
+    public function beforeTraverse(array $nodes)
+    {
+        $this->parentConcat = null;
+    }
+
     public function enterNode(Node $node)
     {
+        if ($node instanceof Concat) {
+            $this->parentConcat = $node;
+        }
+
         if (!$node instanceof String_) {
             return;
         }
 
-        if (($parent = $node->getAttribute('parent')) instanceof Concat) {
-            if ($parent->getAttribute('children')[0] !== $node) {
-                // doesn't apply if we're on the right side of a concatenation
-                return;
-            }
+        if ($this->parentConcat && $node === $this->parentConcat->right) {
+            // doesn't apply if we're on the right side of a concatenation
+            return;
         }
 
         $isUnixAbsolute = preg_match('#^/[a-z]+#', $node->value);
@@ -49,6 +58,13 @@ class AbsolutePath extends AbstractRule
 
         if ($isUnixAbsolute || $isWindowsAbsolute) {
             $this->reporter->addViolation("Found absolute path \"{$node->value}\"", $this, $node);
+        }
+    }
+
+    public function leaveNode(Node $node)
+    {
+        if ($node === $this->parentConcat) {
+            $this->parentConcat = null;
         }
     }
 }

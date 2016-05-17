@@ -18,6 +18,7 @@ class Ruleset
         'EvalExpression',
         'LogicalOperator',
         'MissingUse',
+        'ResponseFunction',
         'PathConstant',
         'PosixRegexFunction',
         'StaticThis',

@@ -1,0 +1,26 @@
+[
+  {
+    "message": "Found header() call",
+    "rule": "response_function",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found http_response_code() call",
+    "rule": "response_function",
+    "startLine": 7,
+    "endLine": 7
+  },
+  {
+    "message": "Found setcookie() call",
+    "rule": "response_function",
+    "startLine": 14,
+    "endLine": 14
+  },
+  {
+    "message": "Found setrawcookie() call",
+    "rule": "response_function",
+    "startLine": 19,
+    "endLine": 19
+  }
+]

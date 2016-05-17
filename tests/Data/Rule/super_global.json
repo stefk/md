@@ -1,0 +1,56 @@
+[
+  {
+    "message": "Found superglobal $GLOBALS",
+    "rule": "super_global",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found superglobal $_SERVER",
+    "rule": "super_global",
+    "startLine": 5,
+    "endLine": 5
+  },
+  {
+    "message": "Found superglobal $_GET",
+    "rule": "super_global",
+    "startLine": 6,
+    "endLine": 6
+  },
+  {
+    "message": "Found superglobal $_POST",
+    "rule": "super_global",
+    "startLine": 6,
+    "endLine": 6
+  },
+  {
+    "message": "Found superglobal $_FILES",
+    "rule": "super_global",
+    "startLine": 9,
+    "endLine": 9
+  },
+  {
+    "message": "Found superglobal $_COOKIE",
+    "rule": "super_global",
+    "startLine": 9,
+    "endLine": 9
+  },
+  {
+    "message": "Found superglobal $_SESSION",
+    "rule": "super_global",
+    "startLine": 9,
+    "endLine": 9
+  },
+  {
+    "message": "Found superglobal $_REQUEST",
+    "rule": "super_global",
+    "startLine": 11,
+    "endLine": 11
+  },
+  {
+    "message": "Found superglobal $_ENV",
+    "rule": "super_global",
+    "startLine": 13,
+    "endLine": 13
+  }
+]

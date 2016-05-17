@@ -23,6 +23,7 @@ class Ruleset
         'PosixRegexFunction',
         'SessionFunction',
         'StaticThis',
+        'Superglobal',
     ];
 
     private $rules = [];

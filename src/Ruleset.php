@@ -21,6 +21,7 @@ class Ruleset
         'ResponseFunction',
         'PathConstant',
         'PosixRegexFunction',
+        'SessionFunction',
         'StaticThis',
     ];
 

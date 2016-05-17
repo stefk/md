@@ -1,0 +1,146 @@
+[
+  {
+    "message": "Found session_abort() call",
+    "rule": "session_function",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found session_cache_expire() call",
+    "rule": "session_function",
+    "startLine": 4,
+    "endLine": 4
+  },
+  {
+    "message": "Found session_cache_limiter() call",
+    "rule": "session_function",
+    "startLine": 5,
+    "endLine": 5
+  },
+  {
+    "message": "Found session_commit() call",
+    "rule": "session_function",
+    "startLine": 6,
+    "endLine": 6
+  },
+  {
+    "message": "Found session_decode() call",
+    "rule": "session_function",
+    "startLine": 7,
+    "endLine": 7
+  },
+  {
+    "message": "Found session_destroy() call",
+    "rule": "session_function",
+    "startLine": 8,
+    "endLine": 8
+  },
+  {
+    "message": "Found session_encode() call",
+    "rule": "session_function",
+    "startLine": 9,
+    "endLine": 9
+  },
+  {
+    "message": "Found session_get_cookie_params() call",
+    "rule": "session_function",
+    "startLine": 10,
+    "endLine": 10
+  },
+  {
+    "message": "Found session_id() call",
+    "rule": "session_function",
+    "startLine": 11,
+    "endLine": 11
+  },
+  {
+    "message": "Found session_is_registered() call",
+    "rule": "session_function",
+    "startLine": 12,
+    "endLine": 12
+  },
+  {
+    "message": "Found session_module_name() call",
+    "rule": "session_function",
+    "startLine": 13,
+    "endLine": 13
+  },
+  {
+    "message": "Found session_name() call",
+    "rule": "session_function",
+    "startLine": 14,
+    "endLine": 14
+  },
+  {
+    "message": "Found session_regenerate_id() call",
+    "rule": "session_function",
+    "startLine": 15,
+    "endLine": 15
+  },
+  {
+    "message": "Found session_register_shutdown() call",
+    "rule": "session_function",
+    "startLine": 16,
+    "endLine": 16
+  },
+  {
+    "message": "Found session_register() call",
+    "rule": "session_function",
+    "startLine": 17,
+    "endLine": 17
+  },
+  {
+    "message": "Found session_reset() call",
+    "rule": "session_function",
+    "startLine": 18,
+    "endLine": 18
+  },
+  {
+    "message": "Found session_save_path() call",
+    "rule": "session_function",
+    "startLine": 19,
+    "endLine": 19
+  },
+  {
+    "message": "Found session_set_cookie_params() call",
+    "rule": "session_function",
+    "startLine": 20,
+    "endLine": 20
+  },
+  {
+    "message": "Found session_set_save_handler() call",
+    "rule": "session_function",
+    "startLine": 21,
+    "endLine": 23
+  },
+  {
+    "message": "Found session_start() call",
+    "rule": "session_function",
+    "startLine": 24,
+    "endLine": 24
+  },
+  {
+    "message": "Found session_status() call",
+    "rule": "session_function",
+    "startLine": 25,
+    "endLine": 25
+  },
+  {
+    "message": "Found session_unregister() call",
+    "rule": "session_function",
+    "startLine": 26,
+    "endLine": 26
+  },
+  {
+    "message": "Found session_unset() call",
+    "rule": "session_function",
+    "startLine": 27,
+    "endLine": 27
+  },
+  {
+    "message": "Found session_write_close() call",
+    "rule": "session_function",
+    "startLine": 28,
+    "endLine": 28
+  }
+]

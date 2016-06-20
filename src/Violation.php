@@ -30,4 +30,17 @@ class Violation
             'endLine' => $this->endLine,
         ];
     }
+
+    public function __toString()
+    {
+        return sprintf(
+            "%s, line%s:\n  -> %s\n  <> %s",
+            $this->file,
+            $this->startLine === $this->endLine ?
+                " {$this->startLine}" :
+                "s {$this->startLine}-{$this->endLine}",
+            $this->message,
+            $this->rule->description()
+        );
+    }
 }

@@ -11,19 +11,11 @@ use MD\Exception\InvalidRuleTagsException;
 class Ruleset
 {
     private static $defaultRules = [
-        'AbsolutePath',
-        'DatabaseQuery',
         'DebugFunction',
-        'ExitExpression',
         'EvalExpression',
         'LogicalOperator',
         'MissingUse',
-        'ResponseFunction',
-        'PathConstant',
-        'PosixRegexFunction',
-        'SessionFunction',
         'StaticThis',
-        'SuperGlobal',
     ];
 
     private $rules = [];

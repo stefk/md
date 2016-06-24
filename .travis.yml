@@ -8,6 +8,11 @@ matrix:
     - php: 7
     - php: hhvm
 
-install: composer install
+install:
+  - composer install
+  - mkdir -p build/logs
 
 script: vendor/bin/phpunit
+
+after_success:
+  - if [[ "$TRAVIS_PHP_VERSION" == "5.5" ]]; then vendor/bin/coveralls ; fi

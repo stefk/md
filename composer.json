@@ -6,6 +6,7 @@
       "email": "stephaneklein221@gmail.com"
     }
   ],
+  "license": "MIT",
   "require": {
     "nikic/php-parser": "^2.1",
     "symfony/console": "^3.1"

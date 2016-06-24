@@ -34,7 +34,7 @@ class Violation
     public function __toString()
     {
         return sprintf(
-            "%s, line%s:\n  -> %s\n  <> %s",
+            "In %s, line%s:\n   %s\n   %s",
             $this->file,
             $this->startLine === $this->endLine ?
                 " {$this->startLine}" :

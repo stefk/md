@@ -24,15 +24,13 @@ class Command extends BaseCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $targets = array_map(function ($target) {
-            $path = realpath($target);
+        $targets = $input->getArgument('files');
 
-            if (!$path) {
+        foreach ($targets as $target) {
+            if (!file_exists($target)) {
                 throw new \Exception("'{$target}' is not a valid path");
             }
-
-            return $path;
-        }, $input->getArgument('files'));
+        }
 
         $analyser = Analyser::buildDefault();
 

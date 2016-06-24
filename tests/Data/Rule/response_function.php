@@ -19,3 +19,5 @@ class Bar
         setrawcookie('bar', '456');
     }
 }
+
+$wontApply['test']();

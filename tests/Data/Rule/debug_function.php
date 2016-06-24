@@ -22,3 +22,5 @@ class Bar
         debug_print_backtrace();
     }
 }
+
+$wontApplyToThisCall();

@@ -7,6 +7,7 @@ use MD\Levels;
 use MD\Tags;
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Name;
 
 class SessionFunction extends AbstractRule
 {
@@ -59,7 +60,7 @@ class SessionFunction extends AbstractRule
 
     public function enterNode(Node $node)
     {
-        if (!$node instanceof FuncCall) {
+        if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
 

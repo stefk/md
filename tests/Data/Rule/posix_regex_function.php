@@ -28,3 +28,5 @@ class Bar
         echo sql_regcase('Foo - bar.');
     }
 }
+
+$wontApplyToThisCall();

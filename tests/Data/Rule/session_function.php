@@ -27,3 +27,4 @@ session_unregister('baz');
 session_unset();
 session_write_close();
 
+$sessionNope();

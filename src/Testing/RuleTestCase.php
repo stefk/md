@@ -28,9 +28,11 @@ abstract class RuleTestCase extends \PHPUnit_Framework_TestCase
         $count = count($violations);
         $expectedCount = count($expectedViolations);
 
+        // @codeCoverageIgnoreStart
         if ($count === 0 && $expectedCount > 0) {
             $this->fail("{$expectedCount} violations were expected in {$file}, none found");
         }
+        // @codeCoverageIgnoreEnd
 
         $stdViolations = array_map(function ($violation) {
             return $violation->toStdClass();
@@ -44,6 +46,9 @@ abstract class RuleTestCase extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @codeCoverageIgnore (data providers are executed before tests start)
+     */
     public function sampleProvider()
     {
         $ruleName = $this->getRule()->name();

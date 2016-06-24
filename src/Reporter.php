@@ -14,11 +14,6 @@ class Reporter
         $this->currentFile = $file;
     }
 
-    public function getFile()
-    {
-        return $this->currentFile;
-    }
-
     public function addViolation($message, AbstractRule $rule, Node $target)
     {
         $this->violations[] = new Violation($message, $rule, $target, $this->currentFile);

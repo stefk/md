@@ -36,7 +36,7 @@ class Command extends BaseCommand
 
         foreach ($targets as $target) {
             if (is_file($target)) {
-                if (pathinfo($target, PATHINFO_EXTENSION === 'php')) {
+                if (pathinfo($target, PATHINFO_EXTENSION) === 'php') {
                     $analyser->analyseFile($target);
                 }
             } else {

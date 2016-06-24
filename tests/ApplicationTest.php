@@ -33,6 +33,13 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $code);
     }
 
+    public function testFileWithViolations()
+    {
+        $appTester = $this->makeAppTester();
+        $code = $appTester->run(['files' => [__DIR__.'/Data/Files/violations/foo.php']]);
+        $this->assertEquals(1, $code);
+    }
+
     public function testDirWithViolations()
     {
         $originalDir = getcwd();

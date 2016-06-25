@@ -1,0 +1,14 @@
+[
+  {
+    "message": "Found operator '=='",
+    "rule": "loose_comparison",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found operator '!='",
+    "rule": "loose_comparison",
+    "startLine": 13,
+    "endLine": 13
+  }
+]

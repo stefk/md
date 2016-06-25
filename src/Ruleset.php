@@ -14,6 +14,7 @@ class Ruleset
         'DebugFunction',
         'EvalExpression',
         'LogicalOperator',
+        'LooseComparison',
         'MissingUse',
         'StaticThis',
     ];

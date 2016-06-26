@@ -1,0 +1,26 @@
+[
+  {
+    "message": "Found commented code",
+    "rule": "commented_code",
+    "startLine": 3,
+    "endLine": 3
+  },
+  {
+    "message": "Found commented code",
+    "rule": "commented_code",
+    "startLine": 9,
+    "endLine": 9
+  },
+  {
+    "message": "Found commented code",
+    "rule": "commented_code",
+    "startLine": 16,
+    "endLine": 16
+  },
+  {
+    "message": "Found commented code",
+    "rule": "commented_code",
+    "startLine": 22,
+    "endLine": 22
+  }
+]

@@ -11,6 +11,7 @@ use MD\Exception\InvalidRuleTagsException;
 class Ruleset
 {
     private static $defaultRules = [
+        'CommentedCode',
         'DebugFunction',
         'EvalExpression',
         'LogicalOperator',

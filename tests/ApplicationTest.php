@@ -53,15 +53,13 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         // file/directory traversal order varies (PHP, OS dependent?) so
         // we have to check that the output contains them in any order
         $error1 = <<<ERR1
-In Data/Files/violations/foo.php, line 3:
-   Found eval() call
-   eval() should never be used
+Data/Files/violations/foo.php:
+  - line 3: found eval() call (eval() should never be used)
 
 ERR1;
         $error2 = <<<ERR2
-In Data/Files/violations/bar/baz.php, lines 3-5:
-   Found var_dump() call
-   Debug functions should not be included in production code
+Data/Files/violations/bar/baz.php:
+  - lines 3-5: found var_dump() call (debug functions should not be included in production code)
 
 ERR2;
         $this->assertContains(

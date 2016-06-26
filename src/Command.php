@@ -56,10 +56,33 @@ class Command extends BaseCommand
 
         $violations = $analyser->getReporter()->getViolations();
 
-        foreach ($violations as $violation) {
-            $output->writeln((string) $violation);
-        }
+        $this->printViolations($violations, $output);
 
         return count($violations) === 0 ? 0 : 1;
+    }
+
+    private function printViolations(array $violations, OutputInterface $output)
+    {
+        $byFile = [];
+
+        foreach ($violations as $violation) {
+            $byFile[$violation->file][] = $violation;
+        }
+
+        foreach ($byFile as $file => $violations) {
+            $output->writeln($file.':');
+
+            foreach ($violations as $violation) {
+                $line = $violation->startLine === $violation->endLine ?
+                    " {$violation->startLine}" :
+                    "s {$violation->startLine}-{$violation->endLine}";
+                $output->writeln(sprintf(
+                    '  - line%s: %s (%s)',
+                    $line,
+                    lcfirst($violation->message),
+                    lcfirst($violation->rule->description())
+                ));
+            }
+        }
     }
 }
